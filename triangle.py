@@ -10,6 +10,15 @@ The primary goal of this file is to demonstrate a simple python program to class
 """
 
 
+from datetime import datetime
+def my_brand(Assignment_name):
+    print("=*=*=*= Jyotiraditya Singh Deora =*=*=*=")
+    print("=*=*=*= Course 2023S-SSW567-A=*=*=*= ")
+    print("=*=*=*= " + Assignment_name + " =*=*=*= ")
+    print("=*=*=*= " + str(datetime.datetime.now()) + " =*=*=*= ")
+
+
+
 def classifytriangle(a, b, c):
     if a > 200 or b > 200 or c > 200:
         return "InvalidInput"
