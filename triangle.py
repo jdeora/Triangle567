@@ -2,38 +2,30 @@
 """
 Created on Thu Jan 14 13:44:00 2016
 Updated Jan 21, 2018
-
 The primary goal of this file is to demonstrate a simple python program to classify triangles
-
 @author: jrr
 @author: rk
 """
+def classify_triangle(side_lengths):
+    """
 
-
-from datetime import datetime
-def my_brand(Assignment_name):
-    print("=*=*=*= Jyotiraditya Singh Deora =*=*=*=")
-    print("=*=*=*= Course 2023S-SSW567-A=*=*=*= ")
-    print("=*=*=*= " + Assignment_name + " =*=*=*= ")
-    print("=*=*=*= " + str(datetime.datetime.now()) + " =*=*=*= ")
-
-
-
-def classifytriangle(a, b, c):
-    if a > 200 or b > 200 or c > 200:
-        return "InvalidInput"
-    if a <= 0 or b <= 0 or c <= 0:
-        return "InvalidInput"
-    if not (isinstance(a, int) and isinstance(b, int) and isinstance(c, int)):
-        return "InvalidInput"
-    if (a <= 0 or b <= 0 or c <= 0) or ((a >= b + c) or (b >= a + c) or (c >= a + b)):
-        return "NotATriangle"
+    Args:
+        side_lengths (list of int):lengths of the three sides.
+    Returns:
+        str:type of triangle formed.
+    """
+    a,b,c = side_lengths
+    if any(side > 200 for side in side_lengths) or any(side <= 0 for side in side_lengths):
+        return "Invalid_Input"
+    if not all(isinstance(side, int) for side in side_lengths):
+        return "Invalid_Input"
+    if (a + b <= c) or (a + c <= b) or (b + c <= a):
+        return "Not_A_Triangle"
     if a == b == c:
         return "Equilateral"
     if a == b or a == c or b == c:
         return "Isosceles"
-    if (a ^ 2 + b ^ 2 == c ^ 2) or (b ^ 2 + c ^ 2 == a ^ 2) or (a ^ 2 + c ^ 2 == b ^ 2):
+    if (a ** 2 + b ** 2 == c ** 2) or (b ** 2 + c ** 2 == a ** 2) or (a ** 2 + c ** 2 == b ** 2):
         return "Right"
-    elif (a != b) and (b != c) and (a != c):
-        return "Scalene"
-print (classifytriangle(2,3,4))
+    return "Scalene"
+print (classify_triangle([2,3,4]))
