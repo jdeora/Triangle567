@@ -61,6 +61,21 @@ class TestTriangle(unittest.TestCase):
     def test_Invalid_input6(self):
         self.assertEqual(classify_triangle([2, 2, -4]), 'Invalid_Input')
 
+    def test_Isosceles4(self):
+        self.assertEqual(classify_triangle([2, 2, 3]), 'Isosceles')
+
+    def test_Isosceles5(self):
+        self.assertEqual(classify_triangle([5, 5, 7]), 'Isosceles')
+
+    def test_Isosceles6(self):
+        self.assertEqual(classify_triangle([8, 8, 13]), 'Isosceles')
+
+    def test_Scalene1(self):
+        self.assertEqual(classify_triangle([7, 8, 9]), 'Scalene')
+
+    def test_Scalene2(self):
+        self.assertEqual(classify_triangle([10, 11, 12]), 'Scalene')
+
 if __name__ == '__main__':
     print('Running unit tests')
     unittest.main()
